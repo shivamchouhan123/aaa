@@ -1,0 +1,42 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<body style="background-color:pink; margin-left: 5px;" > 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/> 
+ <h1 style=" color:black; margin-left: 35%; margin-top: 10px;">				Listing Employees</h1>
+   <hr>
+   <span class="btn btn-light" style="margin-bottom:20px; margin-left: 10px;"><%= link_to "Create New Employee",new_employee_path %></span>
+    
+  </hr>
+
+<!--   <p>
+  	                                                                                                                                                                                                                                              
+  </p> -->
+  <table class="table table-hover container-flex" >
+	    <thead class="table-dark" >
+		    <th>S.No</th>
+        <th>Name </th>
+			  <th>Email</th>
+			  <th>Address</th>
+        <th>Actions</th>
+		</thead style="margin-left: 10px;">
+	
+	      <tbody style="background-color:#35778c; color: whitesmoke;">
+                <% @employees.each do |employee| %>  
+            <tr>
+              <th><%=employee.id %></th>
+	       	    <td><%= "#{employee.first_name} #{employee.last_name}" %></td>
+              <td><%=employee.personal_email %></td>
+              <td><%= "#{employee.city}  #{employee.state} #{employee.country} #{employee.pincode}#{employee.address_1}"%></td>
+              <td><%= link_to "Edit",edit_employee_path(employee), class: "btn btn-light" %></td>
+              <td><%= link_to "View",employee_path(employee), class: "btn btn-light" %></td>
+              <td><%= link_to "Delete",employee_path(employee), class: "btn btn-light",data: {turbo_method: :delete,turbo_confirm: "Are You Sure Delete This Employee ?"} %></td> 
+            </tr>
+       	       <% end %>		
+	    </tbody>
+ </table>
+
+</body>

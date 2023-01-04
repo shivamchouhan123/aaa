@@ -1,0 +1,28 @@
+<h1>New Boss</h1>
+
+
+<%= form_with model: @boss do |form| %>
+<div>
+	  <%= form.label :name %>
+	  <%= form.text_field :name %><br>
+	  <% @boss.errors.full_messages_for(:name).each do |message| %> 
+      
+      <div><%= message %></div> 
+ <% end %>
+</div>
+
+
+<div style="margin-top:20px;">
+      <%=form.label :email %>
+      <%=form.text_field :email %><br>
+      <% @boss.errors.full_messages_for(:email).each do|message| %>
+
+      <div><%= message %></div>
+      <%end %>
+</div>
+
+<div class="btn btn-light" style="margin-top:20px;">
+      
+      <%=form.submit %><br>
+</div>
+<% end %>

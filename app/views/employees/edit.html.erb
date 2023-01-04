@@ -1,0 +1,13 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<div style="margin-left: 400px;"><h1>Edit Employee</h1>
+</div>
+
+<div>
+      <%= render 'form',employee: @employee %>
+</div>
+	

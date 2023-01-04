@@ -1,0 +1,78 @@
+<% if !flash[:notice].blank? %>
+<div class="notice">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+
+<%= form_with model: @employee do |form| %>	
+	<div style="margin-top:20px;" >
+      
+	<%= form.label :first_name ,class: 'mb-2'%>		   
+	<%= form.text_field :first_name ,size: '20x12'%>
+   <% @employee.errors.full_messages_for(:first_name).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+  </div>
+
+  <div style="margin-top:20px;" >
+	<%= form.label :middle_name ,class: 'mb-2'%>
+    <%= form.text_field :middle_name ,size: '20x12'%>
+    <% @employee.errors.full_messages_for(:middle_name).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div style="margin-top:20px;" >		
+	<%= form.label :last_name ,class: 'mb-2'%> 		  
+	<%= form.text_field :last_name ,size: '20x12'%>
+     <% @employee.errors.full_messages_for(:last_name).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+     </div>
+
+    <div style="margin-top:20px;" >
+    	 <%= form.label :personal_email ,class: 'mb-2'%>		   
+    	 <%= form.text_field :personal_email ,size: '20x12'%>
+       <% @employee.errors.full_messages_for(:personal_email).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+    </div>
+    
+    <div style="margin-top:20px;">
+    	 <%= form.label :city ,class: 'mb-2'%>		   
+    	 <%= form.text_field :city ,size: '20x12'%>
+       <% @employee.errors.full_messages_for(:city).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+    </div>
+    
+    <div style="margin-top:20px;">
+    	 <%= form.label :state ,class: 'mb-2'%>		   
+    	 <%= form.text_field :state ,size: '20x12'%>
+       <% @employee.errors.full_messages_for(:state).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+    </div>
+    
+    <div style="margin-top:20px;">
+    	 <%= form.label :country ,class: 'mb-2'%>		   
+    	 <%= form.text_field :country ,size: '20x12'%>
+    </div>
+    
+    <div style="margin-top:20px;">
+    	 <%= form.label :pincode ,class: 'mb-2'%>		   
+    	 <%= form.text_field :pincode ,size: '20x12'%>
+    </div>
+    
+    <div style="margin-top:20px;">
+    	 <%= form.label :address_1,class: 'mb-2'%>		   
+    	 <%= form.text_field :address_1 ,size: '20x12'%>
+    </div>
+    
+    <div style="margin-top:20px;">
+          <%=form.submit class: "btn btn-light" %>
+          <%=link_to "Back To Employees",employees_path ,class: "btn btn-light"  %>
+    </div>
+
+<% end %>
